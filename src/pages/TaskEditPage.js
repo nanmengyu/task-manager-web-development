@@ -3,14 +3,14 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 
 const TaskEditPage = () => {
-    const [taskId] = useParams();
+    const {taskId} = useParams();
     const navigate = useNavigate();
 
     const [taskData,setTaskData] = useState({
         title:"",
         description:"",
-        status:"未完成",
-        priority:"中",  
+        status:"pending",
+        priority:"medium",  
     });
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState("");
@@ -21,7 +21,7 @@ const TaskEditPage = () => {
             const fetchTask = async () => {
                 try{
                     setLoading(true);
-                    const response = await axios.get(`http://localhost:8000/api/tasks/$(taskId)/`,{
+                    const response = await axios.get(`http://localhost:8000/api/tasks/${taskId}/`,{
                         headers:{
                             Authorization:`Bearer ${localStorage.getItem("access_token")}`,
                         },
@@ -44,7 +44,7 @@ const TaskEditPage = () => {
             setLoading(true);
             if (taskId){
                 // 更新任务
-                await axios.put(`http//localhost:8000/api/tasks/${taskId}/`,taskData,{
+                await axios.put(`http://localhost:8000/api/tasks/${taskId}/`,taskData,{
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem("access_token")}`,
                     },

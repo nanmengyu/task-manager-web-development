@@ -3,7 +3,11 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 const TaskItem = ({task}) => {
     const [status, setStatus] = useState(task.status);
-
+    const priorityMap = {
+        high:"高",
+        medium:"中",
+        low:"低",
+    }
     // 切换任务状态
     const toggleStatus = async () => {
         try{
@@ -29,7 +33,7 @@ const TaskItem = ({task}) => {
                 <Link to={`/tasks/${task.id}`}>{task.title}</Link>
             </h3>
             <p>{task.description}</p>
-            <p>优先级:{task.priority}</p>
+            <p>优先级:{priorityMap[task.priority]}</p>
             <button onClick={toggleStatus}>
                 {status === "pending" ? "未完成" :"已完成"}
             </button>

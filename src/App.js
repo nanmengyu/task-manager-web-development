@@ -1,9 +1,9 @@
-import React,{useEffect,useState} from "react";
-import {BrowserRouter as Router,Routes,Route,Navigate} from "react-router-dom";
+import React from "react";
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import TaskListPage from "./pages/TaskListPage";
 import TaskEditPage from "./pages/TaskEditPage";
-import PrivateRoute from "./components/PrivateRoute"; //私有路由组件
+
 
 function App(){
   return (
@@ -11,6 +11,8 @@ function App(){
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
         <Route path="/tasks" element={<TaskListPage/>}/>
+        <Route path="/tasks/new" element={<TaskEditPage/>}/>
+        <Route path="/tasks/:taskId" element={<TaskEditPage/>}/>
       </Routes>
     </Router>
   );
