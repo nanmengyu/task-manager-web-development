@@ -3,16 +3,18 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import TaskListPage from "./pages/TaskListPage";
 import TaskEditPage from "./pages/TaskEditPage";
-
+import RegisterPage from "./pages/RegitsterPage";
 
 function App(){
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/tasks" element={<TaskListPage/>}/>
         <Route path="/tasks/new" element={<TaskEditPage/>}/>
         <Route path="/tasks/:taskId" element={<TaskEditPage/>}/>
+        <Route path="*" element={<LoginPage/>}/>
       </Routes>
     </Router>
   );

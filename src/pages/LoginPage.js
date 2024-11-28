@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -60,6 +60,14 @@ const LoginPage = () => {
                     </Form>
                 )}
             </Formik>
+            <div style={{marginTop:"20px"}}>
+                <p>
+                    没有账号？{" "}
+                    <Link to="/register" style={{color:"blue",textDecoration:"underline"}}>
+                        注册
+                    </Link>
+                </p>
+            </div>
         </div>
     );
 
