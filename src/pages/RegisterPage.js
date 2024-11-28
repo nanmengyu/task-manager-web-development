@@ -26,7 +26,7 @@ const RegisterPage = () => {
     //提交表单逻辑
     const hadnleSubmit = async (values,{setSubmitting}) => {
         try {
-            const response = await axios.post("http://localhost:8000/api/users/register/",{
+            await axios.post("http://localhost:8000/api/users/register/",{
                 username:values.username,
                 password:values.password,
             });
@@ -34,7 +34,7 @@ const RegisterPage = () => {
             setSuccess("注册成功！请前往登录页面。");
             setTimeout(() => navigate("/login"),3000);
         }catch (err){
-            setError("注册失败，青年检查用户名是否已被使用");
+            setError("注册失败，请检查用户名是否已被使用");
             setSuccess("");
         }
         setSubmitting(false);

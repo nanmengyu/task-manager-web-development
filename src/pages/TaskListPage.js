@@ -33,6 +33,9 @@ const TaskListPage = () => {
         fetchTasks();
     },[filter]); // 当筛选条件变化时重新加载任务
 
+    const handleTaskDelete = (taskId) => {
+        setTasks(tasks.filter((task) => task.id !== taskId));
+    }
     return(
         <div style={{padding:"20px"}}>
             <h1>任务列表</h1>
@@ -53,7 +56,7 @@ const TaskListPage = () => {
                     ):(
                         <div>
                             {tasks.map((task) => (
-                                <TaskItem key={task.id} task={task}/>
+                                <TaskItem key={task.id} task={task} onTaskDelete={handleTaskDelete}/>
                             ))}
                         </div>
                     )}
