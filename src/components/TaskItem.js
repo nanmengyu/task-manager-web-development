@@ -13,7 +13,7 @@ const TaskItem = ({task,onTaskDelete}) => {
         try{
             const updatedStatus = status === "pending" ? "completed":"pending";
             await axios.patch(
-                `http://localhost:8000/api/tasks/${task.id}/`,
+                `/api/tasks/${task.id}/`,
                 {status:updatedStatus},
                 {
                     headers:{
@@ -30,7 +30,7 @@ const TaskItem = ({task,onTaskDelete}) => {
     const deleteTask = async () => {
         try{
             await axios.delete(
-                `http://localhost:8000/api/tasks/${task.id}/`,
+                `/api/tasks/${task.id}/`,
                 {
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem("access_token")}`,

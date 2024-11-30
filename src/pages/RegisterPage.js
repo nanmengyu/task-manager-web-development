@@ -26,7 +26,7 @@ const RegisterPage = () => {
     //提交表单逻辑
     const hadnleSubmit = async (values,{setSubmitting}) => {
         try {
-            await axios.post("http://localhost:8000/api/users/register/",{
+            await axios.post("/api/users/register/",{
                 username:values.username,
                 password:values.password,
             });

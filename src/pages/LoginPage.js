@@ -17,7 +17,7 @@ const LoginPage = () => {
     // 提交表单逻辑
     const handleSubmit = async (values,{ setSubmitting}) =>{
         try{
-            const response = await axios.post("http://localhost:8000/api/users/login/",{
+            const response = await axios.post("/api/users/login/",{
                 username:values.username,
                 password:values.password,
 

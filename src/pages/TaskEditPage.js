@@ -21,7 +21,7 @@ const TaskEditPage = () => {
             const fetchTask = async () => {
                 try{
                     setLoading(true);
-                    const response = await axios.get(`http://localhost:8000/api/tasks/${taskId}/`,{
+                    const response = await axios.get(`/api/tasks/${taskId}/`,{
                         headers:{
                             Authorization:`Bearer ${localStorage.getItem("access_token")}`,
                         },
@@ -44,14 +44,14 @@ const TaskEditPage = () => {
             setLoading(true);
             if (taskId){
                 // 更新任务
-                await axios.put(`http://localhost:8000/api/tasks/${taskId}/`,taskData,{
+                await axios.put(`/api/tasks/${taskId}/`,taskData,{
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem("access_token")}`,
                     },
                 });
             }else{
                 // 新增任务
-                await axios.post(`http://localhost:8000/api/tasks/`,taskData,{
+                await axios.post(`/api/tasks/`,taskData,{
                     headers:{
                         Authorization:`Bearer ${localStorage.getItem("access_token")}`,
                     },
